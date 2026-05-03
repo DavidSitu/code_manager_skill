@@ -1,0 +1,8 @@
+interface:
+  display_name: "Code Manager"
+  short_description: "Disciplined coding execution and refactors"
+  brand_color: "#2563EB"
+  default_prompt: "Use $code-manager to execute the active coding session with clean file layout, boundaries, tests, and focused verification."
+
+policy:
+  allow_implicit_invocation: true
