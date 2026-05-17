@@ -57,4 +57,4 @@ Temporary deep imports are acceptable only when:
 - the follow-up is obvious
 - the risk is low
 
-In a WF repo, document or suggest documenting the exception in the relevant subsystem doc when it affects future work.
+In a Project Orchestrator repo, document or suggest documenting the exception in the relevant subsystem doc when it affects future work.

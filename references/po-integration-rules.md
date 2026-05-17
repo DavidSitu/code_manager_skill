@@ -1,10 +1,10 @@
-# WF Integration Rules
+# Project Orchestrator Integration Rules
 
-Use this reference when `code-manager` is working inside a repository that uses `$wf`.
+Use this reference when `code-manager` is working inside a repository that uses `$po`.
 
 ## Ownership Split
 
-`$wf` owns project memory and architecture truth:
+`$po` owns project memory and architecture truth:
 
 - active session selection
 - `TODO.md` and `LOG.md`
@@ -28,7 +28,7 @@ Use this reference when `code-manager` is working inside a repository that uses 
 
 ## Shared Contract
 
-WF subsystem docs define the contract.
+Project Orchestrator subsystem docs define the contract.
 
 Code layout implements the contract.
 
@@ -36,11 +36,11 @@ Tests prove the contract.
 
 When both skills are active:
 
-1. `$wf` identifies the active session and affected subsystem.
+1. `$po` identifies the active session and affected subsystem.
 2. `code-manager` reads the relevant subsystem doc and code paths.
 3. `code-manager` executes the smallest professional coding slice.
 4. `code-manager` runs focused verification.
-5. `$wf` updates `TODO.md`, `LOG.md`, and docs only if project truth changed.
+5. `$po` updates `TODO.md`, `LOG.md`, and docs only if project truth changed.
 
 ## What Code Manager Should Not Own
 
@@ -53,11 +53,11 @@ Do not take over:
 - architecture docs as canonical truth
 - ADR creation as a default action
 
-Suggest a `$wf` update when implementation reveals changed project truth, stale subsystem docs, changed ownership, or a new dependency direction.
+Suggest a `$po` update when implementation reveals changed project truth, stale subsystem docs, changed ownership, or a new dependency direction.
 
 ## Read Discipline
 
-For a WF-planned implementation, read in this order:
+For a Project Orchestrator-planned implementation, read in this order:
 
 1. The active session in `TODO.md` when needed to understand scope.
 2. The relevant subsystem doc in `ARCHITECTURE/current/subsystems/`.
@@ -68,7 +68,7 @@ Do not load the whole architecture tree by default.
 
 ## Handoff Signals
 
-Use or suggest `$wf` when:
+Use or suggest `$po` when:
 
 - the task needs new session planning
 - the subsystem boundary is unclear enough to document

@@ -6,14 +6,14 @@ The explicit trigger is `$code-manager`.
 
 ## Why It Exists
 
-`$wf` is the project workflow and memory skill. It owns project intent, milestones, session tracking, architecture docs, subsystem docs, and ADR triggers.
+`$po` / Project Orchestrator is the project workflow and memory skill. It owns project intent, milestones, session tracking, architecture docs, subsystem docs, and ADR triggers.
 
 `$code-manager` is the execution discipline. It turns a planned or scoped coding task into clean code changes with bounded files, clear public APIs, correct test placement, safe refactors, and honest verification.
 
 Use it when you want Codex to:
 
 - implement a scoped coding session
-- execute a `$wf` planned session
+- execute a `$po` planned session
 - add behavior in a small vertical slice
 - use TDD where practical
 - diagnose bugs with reproduction and regression tests
@@ -25,7 +25,17 @@ Use it when you want Codex to:
 
 ## Install
 
-Copy this folder to:
+This README is source-repo documentation. Do not include it in the installed skill payload.
+
+Install only:
+
+```text
+SKILL.md
+agents/openai.yaml
+references/
+```
+
+Copy the payload to:
 
 ```text
 ~/.codex/skills/code-manager/
@@ -44,13 +54,13 @@ use $code-manager and add a regression test for this bug
 use $code-manager and split this large file safely
 use $code-manager and clean up the imports for this subsystem
 use $code-manager and tighten the public API for this feature
-use $wf to identify the active session, then use $code-manager to execute it
+use $po to identify the active session, then use $code-manager to execute it
 ```
 
 ## Common Use Cases
 
-- WF-planned implementation
-  - `use $wf to identify the active session, then use $code-manager to execute it`
+- Project Orchestrator-planned implementation
+  - `use $po to identify the active session, then use $code-manager to execute it`
 - New behavior
   - `use $code-manager and implement feature X as a small vertical slice`
 - TDD
@@ -72,7 +82,7 @@ use $wf to identify the active session, then use $code-manager to execute it
 
 - inspects code, tests, imports, and entrypoints before editing
 - identifies the affected subsystem or bounded behavior area
-- uses `$wf` subsystem docs as contracts when they exist
+- uses Project Orchestrator subsystem docs as contracts when they exist
 - implements the smallest verifiable vertical slice
 - applies TDD when a focused test can reasonably lead the change
 - diagnoses bugs through reproduction, minimization, hypothesis, fix, regression test, and verification
@@ -85,7 +95,7 @@ use $wf to identify the active session, then use $code-manager to execute it
 
 ## What It Does Not Do
 
-- it does not replace `$wf`
+- it does not replace `$po`
 - it does not own `TODO.md`, `LOG.md`, milestones, roadmap direction, or architecture truth
 - it does not update subsystem docs unless explicitly asked or the implementation changes project truth
 - it does not create speculative abstractions before a real slice proves the need
@@ -94,27 +104,27 @@ use $wf to identify the active session, then use $code-manager to execute it
 - it does not treat folder structure as subsystem truth without checking behavior and imports
 - it does not hide failed or skipped verification
 
-## Relationship To WF
+## Relationship To Project Orchestrator
 
 Use this split:
 
-- `$wf` decides what the active session is, which subsystem owns the behavior, which docs are canonical, what architecture changed, and what should be logged.
+- `$po` decides what the active session is, which subsystem owns the behavior, which docs are canonical, what architecture changed, and what should be logged.
 - `$code-manager` decides where files should live, what imports are allowed, what public API should expose the behavior, where tests should be placed, how to move or split code safely, and what focused verification proves the change.
 
 The intended flow is:
 
-1. `$wf` reads `TODO.md`, `LOG.md`, and relevant `ARCHITECTURE/current/` docs.
-2. `$wf` identifies the active session and affected subsystem.
+1. `$po` reads `TODO.md`, `LOG.md`, and relevant `ARCHITECTURE/current/` docs.
+2. `$po` identifies the active session and affected subsystem.
 3. `$code-manager` reads the relevant subsystem doc and code paths.
 4. `$code-manager` executes the smallest professional coding slice.
 5. `$code-manager` runs focused verification.
-6. `$wf` updates `TODO.md`, `LOG.md`, and docs only if project truth changed.
+6. `$po` updates `TODO.md`, `LOG.md`, and docs only if project truth changed.
 
 ## Execution Model
 
 `$code-manager` classifies coding requests into narrow paths:
 
-- `wf-planned-implementation`
+- `po-planned-implementation`
 - `new-behavior`
 - `bug-fix`
 - `refactor-file-layout`
@@ -129,7 +139,7 @@ For non-trivial work, it starts by identifying the affected subsystem, reading t
 
 Detailed workflows live in `references/`:
 
-- `wf-integration-rules.md`: how `$code-manager` cooperates with `$wf`
+- `po-integration-rules.md`: how `$code-manager` cooperates with `$po`
 - `vertical-slice-rules.md`: small end-to-end implementation slices
 - `tdd-rules.md`: practical red-green-refactor guidance
 - `diagnose-rules.md`: reproduction, hypothesis, fix, regression, verification

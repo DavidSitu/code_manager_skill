@@ -71,4 +71,4 @@ Stop and re-scope when:
 - tests cannot be placed without creating a new boundary
 - the change is becoming a horizontal rewrite
 
-In those cases, finish with the smallest useful result and suggest a `$wf` planning or architecture update.
+In those cases, finish with the smallest useful result and suggest a `$po` planning or architecture update.

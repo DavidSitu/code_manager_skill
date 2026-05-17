@@ -79,4 +79,4 @@ Changing a boundary is architecture work, not just cleanup, when it changes:
 - platform/shared layering
 - test ownership
 
-If that happens in a WF repo, suggest a `$wf` subsystem doc update or ADR.
+If that happens in a Project Orchestrator repo, suggest a `$po` subsystem doc update or ADR.

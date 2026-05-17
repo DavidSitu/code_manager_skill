@@ -1,11 +1,11 @@
 ---
 name: code-manager
-description: Professional codebase execution skill for Codex. Use when implementing a WF-planned session, organizing code by subsystem, moving or splitting files, defining public APIs, enforcing import boundaries, placing tests, applying TDD, diagnosing bugs, or refactoring code structure with focused verification.
+description: Professional codebase execution skill for Codex. Use when implementing a Project Orchestrator-planned session, organizing code by subsystem, moving or splitting files, defining public APIs, enforcing import boundaries, placing tests, applying TDD, diagnosing bugs, or refactoring code structure with focused verification.
 ---
 
 # Code Manager
 
-Use this skill for disciplined coding execution. `$wf` owns project workflow, memory, milestones, `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/`. `code-manager` owns the code change discipline that implements those plans.
+Use this skill for disciplined coding execution. `$po` owns project workflow, memory, milestones, `TODO.md`, `LOG.md`, and `ARCHITECTURE/current/`. `code-manager` owns the code change discipline that implements those plans.
 
 ## Core Defaults
 
@@ -21,7 +21,7 @@ Use this skill for disciplined coding execution. `$wf` owns project workflow, me
 
 Classify the request first, then read only the relevant references:
 
-1. `wf-planned-implementation`
+1. `po-planned-implementation`
 2. `new-behavior`
 3. `bug-fix`
 4. `refactor-file-layout`
@@ -35,16 +35,16 @@ Classify the request first, then read only the relevant references:
 For non-trivial work:
 
 1. Identify the affected subsystem or bounded behavior area.
-2. Read the relevant WF subsystem doc if it exists.
+2. Read the relevant Project Orchestrator subsystem doc if it exists.
 3. Inspect current files, imports, tests, and entrypoints.
 4. Identify the public API and internal files.
 5. Define the smallest behavior or structure change that can be verified.
 
-If no subsystem doc exists, infer the likely owner from code and behavior. Proceed for local safe changes, but suggest a `$wf` subsystem-doc update when the boundary matters.
+If no subsystem doc exists, infer the likely owner from code and behavior. Proceed for local safe changes, but suggest a `$po` subsystem-doc update when the boundary matters.
 
 ## Reference Map
 
-- Read `references/wf-integration-rules.md` when `$wf`, `TODO.md`, `LOG.md`, `ARCHITECTURE/current/`, subsystem docs, or active sessions are involved.
+- Read `references/po-integration-rules.md` when `$po`, `TODO.md`, `LOG.md`, `ARCHITECTURE/current/`, subsystem docs, or active sessions are involved.
 - Read `references/vertical-slice-rules.md` for new behavior, feature work, or large plans that need slicing.
 - Read `references/tdd-rules.md` when adding behavior where a focused test can reasonably lead implementation.
 - Read `references/diagnose-rules.md` for bugs, flaky tests, regressions, or unclear failures.
@@ -55,7 +55,7 @@ If no subsystem doc exists, infer the likely owner from code and behavior. Proce
 
 ## Completion Standard
 
-Before finishing:
+Before finishing, when relevant:
 
 - affected subsystem identified
 - public API preserved or intentionally changed
@@ -64,4 +64,31 @@ Before finishing:
 - dead exports and duplicate files removed when safe
 - tests placed at the right level
 - focused verification run or clearly reported as not run
-- `$wf` docs or tracking update suggested only when project truth changed
+- `$po` docs or tracking update suggested only when project truth changed
+
+## Output Contract
+
+For implementation work, report:
+
+- files changed
+- behavior implemented
+- tests added or updated
+- verification run
+- remaining risk or skipped checks
+
+For diagnosis work, report:
+
+- root cause if known
+- evidence used
+- fix made
+- regression coverage added or why not
+- verification run
+- remaining uncertainty
+
+For refactor work, report:
+
+- boundary or file structure changed
+- public API impact
+- imports updated
+- verification run
+- `$po` follow-up only when project truth changed

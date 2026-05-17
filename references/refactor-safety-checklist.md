@@ -52,9 +52,9 @@ Run the smallest useful checks first:
 
 If verification cannot run, state why and what should be run next.
 
-## WF Follow-Up Signals
+## Project Orchestrator Follow-Up Signals
 
-Suggest a `$wf` update when the refactor changes:
+Suggest a `$po` update when the refactor changes:
 
 - subsystem ownership
 - public API contract
